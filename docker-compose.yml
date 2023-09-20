@@ -1,0 +1,26 @@
+# Versão do Docker Compose
+version: "3"
+
+# Definição dos serviços (contêineres)
+services:
+  node:
+    # Build: define como o contêiner é construído.
+    build: .
+    
+    # Command: especifica o comando a ser executado dentro do contêiner.
+    command: "npm run start"
+    
+    # Working_dir: define o diretório de trabalho no contêiner.
+    working_dir: /home/node/app
+    
+    # Environment: define variáveis de ambiente para o contêiner.
+    environment:
+      - NODE_ENV=production
+    
+    # Expose: especifica as portas que podem ser acessadas de outros contêineres.
+    expose:
+      - "3000"
+    
+    # Ports: faz o mapeamento de portas entre o host e o contêiner.
+    ports:
+      - "3000:3000"
